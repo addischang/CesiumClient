@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="CesiumUnminified/Cesium.js"> </script>
+    <link rel="stylesheet" href="CesiumUnminified/Widgets/widgets.css" />
+    <link rel="stylesheet" href="site.css" />
+</head>
+<body>
+    <div id="cesiumContainer"></div>
+
+    <script>
+        var viewer = new Cesium.Viewer('cesiumContainer');
+
+        var box = new Cesium.Entity({
+            id: 'box1',
+            name: 'Big Box',
+            position: Cesium.Cartesian3.fromDegrees(-100, 30, 300000),
+            box: {
+                dimensions: new Cesium.Cartesian3(300000, 300000, 300000),
+                outline: true
+            }
+        });
+
+        viewer.entities.add(box);
+
+        var nowTime = Cesium.JulianDate.now();
+        var plus10sec = Cesium.JulianDate.addSeconds(nowTime, 10, new Cesium.JulianDate());
+        var plus20sec = Cesium.JulianDate.addSeconds(nowTime, 20, new Cesium.JulianDate());
+
+        /*
+        var sampledColor = new Cesium.SampledProperty
+        sampledColor.addSample(nowTime, Cesium.Color.RED);
+        sampledColor.addSample(plus10sec, Cesium.Color.Blue);
+        
+
+        for (var i = 0; i < 1000; i++) {
+            var timeInterval = new Cesium.TimeInterval();
+            timeInterval.start = Cesium.JulianDate(nowTime, i - 1, new Cesium.JulianDate());
+            timeInterval.stop = Cesium.JulianDate(nowTime, i, new Cesium.JulianDate());
+            timeInterval.isStartIncluded = true;
+            timeInterval.isStopIncluded = false;
+            timeInterval.data = new Cartesian2(i, i);
+
+            timeIntCollection.addInterval(timeInterval);
+        }
+
+        var timeIntCollectionProperty = new Cesium.TimeInterval
+
+        var ellipsoid = new Cesium.Entity();
+        ellipsoid.id = 'ellipsoid1';
+        ellipsoid.name = 'Giant Football';
+        ellipsoid.position = Cesium.Cartesian3.fromDegrees(-90, 35, 150000);
+
+        var ellipsoidGraphics = new Cesium.EllipsoidGraphics();
+        ellipsoidGraphics.radii = new Cesium.Cartesian3(150000, 150000, 300000);
+        ellipsoidGraphics.outline = true;
+        ellipsoidGraphics.material = new Cesium.ColorMaterialProperty(sampledColor);
+        ellipsoid.ellipsoid = ellipsoidGraphics;
+
+        viewer.entities.add(ellipsoid);
+
+       */
+
+        var billboard = new Cesium.Entity({
+            id: 'billboard1',
+            name: 'The Bill',
+            position: Cesium.Cartesian3.fromDegrees(-75, 35),
+            billboard: {
+                image: 'Facility.png',
+                scale: 2
+            },
+            label: {
+                text: 'Chieh',
+                verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+                horizontalOrigin: Cesium.HorizontalOrigin.LEFT
+            }
+        });
+        
+        viewer.entities.add(billboard);
+        /*
+        var samplePosition = new Cesium.SampledPositionProperty();
+        samplePosition.addSample(nowTime, Cesium.Cartesian3.fromDegrees(-125, 55));
+        samplePosition.addSample(plus10sec, Cesium.Cartesian3.fromDegrees(-65, 55));
+        samplePosition.addSample(plus20sec, Cesium.Cartesian3.fromDegrees(0, 55));
+
+        samplePosition.interpolationAlgorithm: Cesium.
+
+        */
+        var model = new Cesium.Entity({
+            id: 'model1',
+            name: 'Cesium Man',
+            position: Cesium.Cartesian3.fromDegrees(-60, 10, 300000),
+            //orientation: new Cesium.VelocityOrientationProperty(samplePosition),
+            model: {
+                uri: 'Cesium_Man.glb',
+                scale: 1000000
+            }
+        });
+
+        viewer.entities.add(model);
+
+
+
+        /*
+        
+        */
+
+    </script>
+</body>
+</html>
